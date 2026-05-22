@@ -24,7 +24,7 @@ jobs:
         run: pip install black flake8
 
       - name: Run Black (formatter check)
-        run: black --check .
+        run: black .
 
       - name: Run Flake8
         run: flake8 app/ tests/

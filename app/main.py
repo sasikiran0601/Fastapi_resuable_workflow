@@ -1,20 +1,13 @@
-import sys
-from pathlib import Path
+from fastapi import FastAPI
 
-# Add parent directory to path
-sys.path.insert(0, str(Path(__file__).parent.parent))
+app = FastAPI()
 
-from app.main import app
-from fastapi.testclient import TestClient
 
-client = TestClient(app)
+@app.get("/")
+def read_root():
+    return {"message": "Sasikiran"}
 
-def test_root():
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {"message": "Sasikiran"}
 
-def test_health():
-    response = client.get("/health")
-    assert response.status_code == 200
-    assert response.json() == {"status": "ECE"}
+@app.get("/health")
+def health_check():
+    return {"status": "ECE"}

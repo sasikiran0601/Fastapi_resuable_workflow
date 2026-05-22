@@ -8,12 +8,12 @@ on:
 
 jobs:
   lint:
-    uses: ./.github/workflows/reusable_lint.yml    
+    uses: ./.github/workflows/resuable_lint.yml    
     with:
       python-version: '3.11'
 
   test:
-    uses: ./.github/workflows/reusable_test.yml    
+    uses: ./.github/workflows/resuable_test.yml    
     with:
       python-version: '3.11'
     secrets:

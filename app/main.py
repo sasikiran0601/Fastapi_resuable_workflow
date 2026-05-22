@@ -4,8 +4,8 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"message": "..-. ..- -.-. -.- / -.-- --- ..-"}
+    return {"message": "Sasikiran"}
 
 @app.get("/health")
 def health_check():
-    return {"status": ".... . -.-- --..-- --. --- / ..-. ..- -.-. -.- / ..- .-. / ... . .-.. ..-."}
+    return {"status": "ECE"}

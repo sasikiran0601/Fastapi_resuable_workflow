@@ -1,0 +1,30 @@
+name: Reusable-Lint
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: true
+        type: string
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version }}
+
+      - name: Install linting tools
+        run: pip install black flake8
+
+      - name: Run Black (formatter check)
+        run: black --check .
+
+      - name: Run Flake8
+        run: flake8 app/ tests/
